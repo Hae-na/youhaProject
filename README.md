@@ -1,2 +1,1 @@
-# youhaproject
-
+# Issues에 프로젝트 설명을 담았습니다. :)
