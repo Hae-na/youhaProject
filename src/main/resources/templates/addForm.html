@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>영화 등록 폼</h2>
+    </div>
+
+    <h4 class="mb-3">영화 입력</h4>
+
+    <form action th:action method="post">
+        <div>
+            <label for="movieCd">영화코드</label>
+            <input type="text" id="movieCd" name="movieCd" class="form-control" placeholder="영화코드를 입력하세요">
+        </div>
+        <div>
+            <label for="movieNm">영화명(한글)</label>
+            <input type="text" id="movieNm" name="movieNm" class="form-control" placeholder="영화명(한글)을 입력하세요">
+        </div>
+        <div>
+            <label for="movieNmEn">영화명(영문)</label>
+            <input type="text" id="movieNmEn" name="movieNmEn" class="form-control" placeholder="영화명(영문)을 입력하세요">
+        </div>
+        <div>
+            <label for="showTm">재생시간</label>
+            <input type="text" id="showTm" name="showTm" class="form-control" placeholder="재생시간을 입력하세요">
+        </div>
+        <div>
+            <label for="openDt">개봉일</label>
+            <input type="text" id="openDt" name="openDt" class="form-control" placeholder="개봉일을 입력하세요">
+        </div>
+        <div>
+            <label for="typeNm">영화유형</label>
+            <input type="text" id="typeNm" name="typeNm" class="form-control" placeholder="영화유형을 입력하세요">
+        </div>
+        <div>
+            <label for="nationNm">제작국가명</label>
+            <input type="text" id="nationNm" name="nationNm" class="form-control" placeholder="제작국가명을 입력하세요">
+        </div>
+        <div>
+            <label for="genreNm">장르</label>
+            <input type="text" id="genreNm" name="genreNm" class="form-control" placeholder="장르를 입력하세요">
+        </div>
+        <div>
+            <label for="directorNm">감독명</label>
+            <input type="text" id="directorNm" name="directorNm" class="form-control" placeholder="감독명을 입력하세요">
+        </div>
+
+        <div>
+            <label for="peopleNm">출연배우</label>
+            <input type="text" id="peopleNm" name="peopleNm" class="form-control" placeholder="출연배우를 입력하세요">
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">영화 등록</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-third btn-lg" type="reset">초기화</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg" onclick="location.href='items.html'"
+                        th:onclick="|location.href='@{/api/v1/movies}'|"
+                        type="button">목록으로</button>
+            </div>
+        </div>
+
+    </form>
+
+</div> <!-- /container -->
+</body>
+</html>

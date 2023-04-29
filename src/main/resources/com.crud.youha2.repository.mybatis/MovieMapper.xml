@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crud.youha2.repository.mybatis.MovieMapper">
+<!--    useGeneratedKeys="true" keyProperty="movieId"-->
+    <insert id="register" parameterType="MovieVO">
+    <selectKey keyProperty="movieId" resultType="int" order="BEFORE">
+        select next value for movie_seq;
+    </selectKey>
+    insert into movie(movieId,movieCd,movieNm,movieNmEn,showTm,openDt,typeNm,nationNm,genreNm,directorNm,peopleNm)
+    values (#{movieId},#{movieCd},#{movieNm},#{movieNmEn},#{showTm},#{openDt},#{typeNm},#{nationNm},#{genreNm},#{directorNm},#{peopleNm})
+    </insert>
+
+    <update id="update">
+    update movie
+    set movieCd=#{updateParam.movieCd},
+        movieNm=#{updateParam.movieNm},
+        movieNmEn=#{updateParam.movieNmEn},
+        showTm=#{updateParam.showTm},
+        openDt=#{updateParam.openDt},
+        typeNm=#{updateParam.typeNm},
+        nationNm=#{updateParam.nationNm},
+        genreNm=#{updateParam.genreNm},
+        directorNm=#{updateParam.directorNm},
+        peopleNm=#{updateParam.peopleNm}
+    where movieId=#{movieId}
+    </update>
+
+    <select id="movieList" resultType="MovieVO">
+    select * from movie
+   <!--<where>
+        <if test="movieNm != null and movieNm != ''">
+            and movieNm like concat('%', #{movieNm}, '%')
+        </if>
+    </where>-->
+    </select>
+
+    <select id="findById" resultType="MovieVO">
+    select * from movie where movieId=#{movieId}
+    </select>
+
+    <delete id="remove" parameterType="int">
+        delete from movie where movieId=#{movieId};
+    </delete>
+</mapper>
